@@ -19,6 +19,17 @@ class EtfsController < ApplicationController
     end
   end
 
+  def update
+    @etf = Etf.find(params[:id])
+    @etf.score = params[:etf][:score]
+    if @etf.save
+      render json: @etf, status: :accepted
+    else
+      render json: { errors: @etf.errors.full_messages }, status: :unprocessible_entity
+    end
+    byebug
+  end
+
   private
 
   def etf_params
