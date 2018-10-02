@@ -27,7 +27,6 @@ class EtfsController < ApplicationController
     else
       render json: { errors: @etf.errors.full_messages }, status: :unprocessible_entity
     end
-    byebug
   end
 
   private
